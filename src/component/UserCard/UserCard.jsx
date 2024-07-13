@@ -2,8 +2,8 @@ import React from "react";
 import { svgData } from "../../svg";
 import { UseDataContext } from "../../context/Color";
 
-const UserCard = ({ userData }) => {
-  const { clicked } = UseDataContext();
+const UserCard = () => {
+  const { clicked, userData } = UseDataContext();
   return (
     <>
       {userData ? (
@@ -11,15 +11,15 @@ const UserCard = ({ userData }) => {
           <div className="card-section flex justify-center items-center gap-[20px] t-p">
             <div
               style={{
-                background: !clicked ? "#a855f7" : "#ffffff",
-                color: clicked ? "#000" : "#ffffff",
+                background: !clicked ? "black" : "#ffffff",
+                color: clicked ? "#000" : "gray",
               }}
               className="user-info-container relative  dark:bg-slate-700 text-[#000000] dark:text-[#ffffff] border-[1px] border-[#d0d7de] rounded-tr-[10px] rounded-br-[10px] rounded-bl-[10px] p-[30px] max-w-[550px] flex flex-col justify-start items-start gap-[15px]"
             >
               <span
                 style={{
-                  background: !clicked ? "#a855f7" : "#ffffff",
-                  color: clicked ? "#000" : "#ffffff",
+                  background: !clicked ? "black" : "#ffffff",
+                  color: clicked ? "#000" : "gray",
                 }}
                 className="user-type absolute top-[-38px] left-[-1px] bg-[#ffffff] dark:bg-slate-700 px-[15px] py-[5px] border-[1px] border-[#d0d7de] border-b-0 rounded-tl-[10px] rounded-tr-[10px] font-semibold text-[18px]"
               >
@@ -81,8 +81,8 @@ const UserCard = ({ userData }) => {
             <div className="user-cells-container flex flex-col justify-between gap-[22px]">
               <button
                 style={{
-                  background: !clicked ? "#a855f7" : "#ffffff",
-                  color: clicked ? "#000" : "#ffffff",
+                  background: !clicked ? "black" : "#ffffff",
+                  color: clicked ? "#000" : "gray",
                 }}
                 target="__blank"
                 className="user-cell flex justify-start items-center gap-[15px] bg-[#ffffff] dark:bg-slate-700 p-[10px] rounded-[10px] border-[1px] border-[d0d7de] w-[200px] text-[#000000] dark:text-[#ffffff] group"
@@ -97,8 +97,8 @@ const UserCard = ({ userData }) => {
               </button>
               <button
                 style={{
-                  background: !clicked ? "#a855f7" : "#ffffff",
-                  color: clicked ? "#000" : "#ffffff",
+                  background: !clicked ? "black" : "#ffffff",
+                  color: clicked ? "#000" : "gray",
                 }}
                 target="__blank"
                 className="user-cell flex justify-start items-center gap-[15px] bg-[#ffffff] dark:bg-slate-700 p-[10px] rounded-[10px] border-[1px] border-[d0d7de] w-[200px] text-[#000000] dark:text-[#ffffff] group"
@@ -113,8 +113,8 @@ const UserCard = ({ userData }) => {
               </button>
               <button
                 style={{
-                  background: !clicked ? "#a855f7" : "#ffffff",
-                  color: clicked ? "#000" : "#ffffff",
+                  background: !clicked ? "black" : "#ffffff",
+                  color: clicked ? "#000" : "gray",
                 }}
                 target="__blank"
                 className="user-cell flex justify-start items-center gap-[15px] bg-[#ffffff] dark:bg-slate-700 p-[10px] rounded-[10px] border-[1px] border-[d0d7de] w-[200px] text-[#000000] dark:text-[#ffffff] group"
@@ -132,8 +132,11 @@ const UserCard = ({ userData }) => {
         </section>
       ) : (
         <i
-          style={{ lineHeight: "0px" }}
-          className="fa-brands fa-github text-purple-500 text-[100px] pt-[7rem] "
+          style={{
+            lineHeight: "0px",
+            filter: "blur(0.5px)",
+          }}
+          className="fa-brands fa-github text-purple-500 text-[100px] pt-[11rem] "
         ></i>
       )}
     </>

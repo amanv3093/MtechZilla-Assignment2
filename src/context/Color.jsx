@@ -6,7 +6,11 @@ export const UseDataContext = () => {
   return useContext(DataContext);
 };
 export const DataContextProvider = (props) => {
-  const [clicked, setClicked] = useState(true);
+  const [clicked, setClicked] = useState(false);
+  const [username, setUsername] = useState("");
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
     setClicked(!clicked);
@@ -17,7 +21,21 @@ export const DataContextProvider = (props) => {
     document.body.style.backgroundColor = "black";
   }
   return (
-    <DataContext.Provider value={{ clicked, setClicked, handleClick }}>
+    <DataContext.Provider
+      value={{
+        clicked,
+        setClicked,
+        handleClick,
+        username,
+        setUsername,
+        userData,
+        setUserData,
+        error,
+        setError,
+        loading,
+        setLoading,
+      }}
+    >
       {props.children}
     </DataContext.Provider>
   );
