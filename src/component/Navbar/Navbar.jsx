@@ -1,13 +1,17 @@
 import React from "react";
+import { UseDataContext } from "../../context/Color";
 
 function Navbar() {
+  const { clicked, handleClick } = UseDataContext();
+
   return (
     <div className="flex items-center justify-around px-5 py-4">
       <button
         class="bg-[#f3f2f5] text-[#9d62f3] p-2 mt-5 mr-5 flex ml-auto rounded-full text-xl"
         type="checkbox"
+        onClick={handleClick}
       >
-        {false ? (
+        {clicked ? (
           <svg
             stroke="currentColor"
             fill="currentColor"

@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-
 import "./App.css";
 import UserCard from "./component/UserCard/UserCard";
 import Navbar from "./component/Navbar/Navbar";
+import Loader from "./component/Loader/Loader";
 
 function App() {
   const [username, setUsername] = useState("");
   const [userData, setUserData] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
     setUsername(e.target.value);
@@ -17,6 +18,7 @@ function App() {
     e.preventDefault();
     setError(null);
     setUserData(null);
+    setLoading(true);
 
     try {
       const response = await fetch(`https://api.github.com/users/${username}`);
@@ -27,16 +29,18 @@ function App() {
       setUserData(data);
     } catch (error) {
       setError(error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <>
+    <div>
       <Navbar />
-      <div className="App flex flex-col items-center justify-center   p-4">
+      <div className="App flex flex-col items-center justify-center p-4">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col items-center bg-white p-4  rounded"
+          className="flex flex-col items-center  p-4 rounded"
         >
           <div className="search-bar flex justify-center items-center gap-2.5 m-5">
             <div className="search flex justify-start items-center gap-1.5 bg-transparent border-2 border-gray-300 rounded p-2.5 w-72 focus-within:bg-white focus-within:border-purple-500">
@@ -61,11 +65,18 @@ function App() {
             </button>
           </div>
         </form>
-
-        {error && <p className="error text-red-500 mt-4">{error}</p>}
-        {userData && <UserCard userData={userData} />}
+        <div>
+          {error && <p className="error text-red-500 mt-4 pt-12">{error}</p>}
+          {loading ? (
+            <div className="pt-12">
+              <Loader loading={loading} />
+            </div>
+          ) : (
+            !error && <UserCard userData={userData} />
+          )}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
