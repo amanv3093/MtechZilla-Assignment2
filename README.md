@@ -1,8 +1,42 @@
-# React + Vite
+# GitHub Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple React application that fetches and displays a GitHub user's public information in a card format. The application uses Tailwind CSS for styling.
 
-Currently, two official plugins are available:
+# Hosted Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+https://mtech-zilla-assignment2-sandy.vercel.app/
+
+## Features
+
+- User can enter a GitHub username to fetch public information
+- Displays user's avatar, username, name, number of public repositories, number of public gists, and profile creation date
+- Styled using Tailwind CSS
+
+## Technologies Used
+
+- Html
+
+- Tailwind css
+
+- Javascript
+
+- React.js
+
+## API Reference
+
+-GET https://api.github.com/users/{username}
+
+
+## Requirements
+
+- Node.js
+- npm or yarn
+
+## Getting Started
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/amanv3093/MtechZilla-Assignment1.git
+   ```
