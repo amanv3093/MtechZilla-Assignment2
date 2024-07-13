@@ -6,8 +6,15 @@ function Navbar() {
 
   return (
     <div className="flex items-center justify-around px-5 py-4">
+      <div className="text-2xl">
+        <i
+          className="fa-brands fa-github text-3xl"
+          style={{ color: clicked ? "#9d62f3" : "White" }}
+        ></i>
+        <span className="pl-2 text-gray-500">Github Finder</span>
+      </div>
       <button
-        class="bg-[#f3f2f5] text-[#9d62f3] p-2 mt-5 mr-5 flex ml-auto rounded-full text-xl"
+        class="bg-[#f3f2f5] text-[#9d62f3] p-2 mt-5 mr-5 flex ml-auto rounded-full text-[30px]"
         type="checkbox"
         onClick={handleClick}
       >
