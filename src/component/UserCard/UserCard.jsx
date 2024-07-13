@@ -1,7 +1,7 @@
 import React from "react";
 import { svgData } from "../../svg";
+
 const UserCard = ({ userData }) => {
-  console.log(userData);
   return (
     <section className="flex justify-center items-center min-h-[80vh] sm:my-0 mx-[1rem] mt-[5rem] text-[#000000] dark:text-[#ffffff] dark">
       <div className="card-section flex justify-center items-center gap-[20px]">
@@ -34,26 +34,24 @@ const UserCard = ({ userData }) => {
             </div>
           </div>
           <p className="user-p-tag text-[18px]">
-            <p>{userData.bio}</p>
+            {userData.bio || "Bio not available"}
           </p>
           <div className="user-additional-container flex flex-col gap-[5px]">
             <div className="user-additional flex justify-start items-center gap-[5px]">
               <span dangerouslySetInnerHTML={{ __html: svgData[2] }}></span>
-              <p>Not Mentioned</p>
+              <p>{userData.company || "Company not available"}</p>
             </div>
             <div className="user-additional flex justify-start items-center gap-[5px]">
               <span dangerouslySetInnerHTML={{ __html: svgData[3] }}></span>
-              <p>
-                <p>{userData.location}</p>
-              </p>
+              <p>{userData.location || "Location not available"}</p>
             </div>
             <div className="user-additional flex justify-start items-center gap-[5px]">
               <span dangerouslySetInnerHTML={{ __html: svgData[4] }}></span>
-              <p>Not Mentioned</p>
+              <p>{userData.blog || "Blog not available"}</p>
             </div>
             <div className="user-additional flex justify-start items-center gap-[5px]">
               <span dangerouslySetInnerHTML={{ __html: svgData[5] }}></span>
-              <p>{userData != null ? userData.email : "Not Mentioned"}</p>
+              <p>{userData.email || "Email not available"}</p>
             </div>
           </div>
         </div>
@@ -101,7 +99,3 @@ const UserCard = ({ userData }) => {
 };
 
 export default UserCard;
-// <span dangerouslySetInnerHTML={{ __html: svgData[2] }}></span>
-{
-  /* <p>{userData.public_gists}(Gist)</p> */
-}
